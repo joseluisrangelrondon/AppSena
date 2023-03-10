@@ -36,14 +36,16 @@ Route::get('/seccion', function () {
 Auth::routes();
 
 Route::post('/api/seccion/load', [App\Http\Controllers\SeccionController::class, 'load'])->name('alimentar');
-Route::get('/api/seccion/update', [App\Http\Controllers\SeccionController::class, 'update'])->name('actualizar');
+Route::put('/api/seccion/update', [App\Http\Controllers\SeccionController::class, 'update'])->name('actualizar');
 Route::delete('/api/seccion/delete', [App\Http\Controllers\SeccionController::class, 'delete'])->name('borrar');
 
 Route::post('/api/almacen/load', [App\Http\Controllers\AlmacenController::class, 'load'])->name('alimentar');
-/*Route::get('/api/almacen/update', [App\Http\Controllers\AlmacenController::class, 'update'])->name('actualizar');
-Route::delete('/api/almacen/delete', [App\Http\Controllers\AlmacenController::class, 'delete'])->name('borrar');*/
+Route::put('/api/almacen/update', [App\Http\Controllers\AlmacenController::class, 'update'])->name('actualizar');
+Route::delete('/api/almacen/delete', [App\Http\Controllers\AlmacenController::class, 'delete'])->name('borrar');
 
 Route::post('/api/material/load', [App\Http\Controllers\MaterialController::class, 'load'])->name('alimentar');
+Route::put('/api/material/update', [App\Http\Controllers\MaterialController::class, 'update'])->name('alimentar');
+Route::delete('/api/material/delete', [App\Http\Controllers\MaterialController::class, 'delete'])->name('alimentar');
 
 Auth::routes();
 

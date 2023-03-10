@@ -30,4 +30,27 @@ class AlmacenController extends Controller
  
         $almacen->save();
     }
+    public function update(Request $request)
+    {
+        // Validate the request...
+ 
+        $almacen = Almacen::find($request->id);
+ 
+        $almacen->encargado = $request->name;
+        $almacen->OrdenSuministro = $request->OS;
+        $almacen->OrdenEntrada = $request->OE;
+        $almacen->Cantidad = $request->Cant;
+
+        $almacen->Inv_id = $request->Inventario;
+        $almacen->seccion_id = $request->seccion;
+ 
+        $almacen->save();
+    }
+
+    public function delete(Request $request)
+   {
+        $almacen = Almacen::find($request->id);
+
+        $almacen->delete();
+    }
 }

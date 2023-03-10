@@ -27,4 +27,22 @@ class MaterialController extends Controller
  
         $material->save();
     }
+
+    public function update (Request $request){
+
+        $material = Material::find($request->id);
+        $material->denominacion = $request->name;
+        $material->serie = $request->numero;
+        $material->estado = $request->estado;
+ 
+        $material->save();
+
+    } 
+
+    public function delete(Request $request)
+   {
+        $material = Material::find($request->id);
+
+        $material->delete();
+    }
 }
